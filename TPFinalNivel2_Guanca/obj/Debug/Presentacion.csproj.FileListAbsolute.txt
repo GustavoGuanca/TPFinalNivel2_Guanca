@@ -1,0 +1,16 @@
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\TPFinalNivel2_Guanca.exe.config
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\TPFinalNivel2_Guanca.exe
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\TPFinalNivel2_Guanca.pdb
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\Dominio.dll
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\Negocio.dll
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\Dominio.pdb
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\bin\Debug\Negocio.pdb
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\TPFinalNivel2_Guanca.frmArticulos.resources
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\TPFinalNivel2_Guanca.Properties.Resources.resources
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\TPFinalNivel2_Guanca.exe
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\TPFinalNivel2_Guanca.pdb
+C:\Users\guanc\source\repos\TPFinalNivel2_Guanca\TPFinalNivel2_Guanca\obj\Debug\TPFinalNivel2_Guanca.frmAltaArticulo.resources
