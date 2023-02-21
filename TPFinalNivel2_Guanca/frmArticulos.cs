@@ -27,8 +27,11 @@ namespace TPFinalNivel2_Guanca
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.UrlImagen);
+            if(dgvArticulos.CurrentRow != null)
+            {
+                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                 cargarImagen(seleccionado.UrlImagen);
+            }
         }
 
         private void cargarImagen(string imagen)
@@ -52,8 +55,7 @@ namespace TPFinalNivel2_Guanca
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
-                dgvArticulos.Columns["UrlImagen"].Visible = false;
-                dgvArticulos.Columns["Id"].Visible = false;
+                ocultarColumnas();
                 pbxArticulo.Load(listaArticulo[0].UrlImagen);
             }
             catch (Exception ex)
@@ -100,6 +102,40 @@ namespace TPFinalNivel2_Guanca
 
                 throw;
             }
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+    
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro.Length >= 2)
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }
