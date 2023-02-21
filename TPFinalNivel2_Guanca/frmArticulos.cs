@@ -22,7 +22,11 @@ namespace TPFinalNivel2_Guanca
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            cargar(); 
+            cargar();
+            cboCampo.Items.Add("Código");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripción");
+            cboCampo.Items.Add("Precio");
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -100,7 +104,7 @@ namespace TPFinalNivel2_Guanca
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -110,32 +114,48 @@ namespace TPFinalNivel2_Guanca
             dgvArticulos.Columns["Id"].Visible = false;
         }
 
-        private void btnFiltro_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+   
     
 
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
+            private void cboCampos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada;
-            string filtro = txtFiltro.Text;
-
-            if (filtro.Length >= 2)
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
             {
-                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
             }
-
             else
             {
-                listaFiltrada = listaArticulo;
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
             }
 
 
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = listaFiltrada;
-            ocultarColumnas();
+        
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
