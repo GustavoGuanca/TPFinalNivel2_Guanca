@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Dominio;
 using Negocio;
 
-namespace TPFinalNivel2_Guanca
+namespace Presentacion
 {
     public partial class frmArticulos : Form
     {
@@ -118,7 +118,14 @@ namespace TPFinalNivel2_Guanca
     
 
             private void cboCampos_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            {
+            if (cboCampo.SelectedIndex == -1)
+            {
+                cboCriterio.Items.Clear();
+            }
+
+            else
+            {
             string opcion = cboCampo.SelectedItem.ToString();
             if (opcion == "Precio")
             {
@@ -134,17 +141,60 @@ namespace TPFinalNivel2_Guanca
                 cboCriterio.Items.Add("Termina con");
                 cboCriterio.Items.Add("Contiene");
             }
-
-
-        
+          }
         }
 
-        private void btnFiltro_Click(object sender, EventArgs e)
+       
+        private bool validarBusquedaAvanzada()
+        {
+            if(cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Debes seleccionar un campo");
+                return true;
+            }
+
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Debes seleccionar un Criterio");
+                return true;
+            }
+
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Debes ingresar un filtro");
+                    return true;
+                }
+
+                if (!(validarSoloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Debes ingresar sólo números");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool validarSoloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
+                if (validarBusquedaAvanzada())
+                    return;
 
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
@@ -156,6 +206,14 @@ namespace TPFinalNivel2_Guanca
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cboCampo.SelectedIndex = -1;
+            cboCriterio.SelectedIndex = -1;
+            txtFiltroAvanzado.Text = "";
+            cargar();
         }
     }
 }

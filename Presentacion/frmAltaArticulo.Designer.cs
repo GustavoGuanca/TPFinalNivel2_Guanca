@@ -1,5 +1,5 @@
 ﻿
-namespace TPFinalNivel2_Guanca
+namespace Presentacion
 {
     partial class frmAltaArticulo
     {
@@ -29,6 +29,8 @@ namespace TPFinalNivel2_Guanca
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaArticulo));
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -46,7 +48,20 @@ namespace TPFinalNivel2_Guanca
             this.txtUrlImagen = new System.Windows.Forms.TextBox();
             this.lblUrlImagen = new System.Windows.Forms.Label();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
+            this.btnImagen = new System.Windows.Forms.Button();
+            this.errNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPrecio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMarca = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDescripcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -99,7 +114,7 @@ namespace TPFinalNivel2_Guanca
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(61, 265);
+            this.btnAceptar.Location = new System.Drawing.Point(63, 297);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 7;
@@ -109,7 +124,7 @@ namespace TPFinalNivel2_Guanca
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(154, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(156, 297);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -155,7 +170,7 @@ namespace TPFinalNivel2_Guanca
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(99, 218);
+            this.txtPrecio.Location = new System.Drawing.Point(101, 250);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(139, 20);
             this.txtPrecio.TabIndex = 6;
@@ -163,7 +178,7 @@ namespace TPFinalNivel2_Guanca
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(45, 221);
+            this.lblPrecio.Location = new System.Drawing.Point(47, 253);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(40, 13);
             this.lblPrecio.TabIndex = 12;
@@ -171,7 +186,7 @@ namespace TPFinalNivel2_Guanca
             // 
             // txtUrlImagen
             // 
-            this.txtUrlImagen.Location = new System.Drawing.Point(99, 192);
+            this.txtUrlImagen.Location = new System.Drawing.Point(99, 195);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(139, 20);
             this.txtUrlImagen.TabIndex = 5;
@@ -180,7 +195,7 @@ namespace TPFinalNivel2_Guanca
             // lblUrlImagen
             // 
             this.lblUrlImagen.AutoSize = true;
-            this.lblUrlImagen.Location = new System.Drawing.Point(26, 195);
+            this.lblUrlImagen.Location = new System.Drawing.Point(26, 198);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(61, 13);
             this.lblUrlImagen.TabIndex = 14;
@@ -188,18 +203,53 @@ namespace TPFinalNivel2_Guanca
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(279, 35);
+            this.pbxArticulo.Location = new System.Drawing.Point(275, 38);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(220, 203);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 16;
             this.pbxArticulo.TabStop = false;
             // 
+            // btnImagen
+            // 
+            this.btnImagen.Location = new System.Drawing.Point(113, 221);
+            this.btnImagen.Name = "btnImagen";
+            this.btnImagen.Size = new System.Drawing.Size(127, 23);
+            this.btnImagen.TabIndex = 17;
+            this.btnImagen.Text = "Subir desde el escritorio";
+            this.btnImagen.UseVisualStyleBackColor = true;
+            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
+            // 
+            // errNombre
+            // 
+            this.errNombre.ContainerControl = this;
+            // 
+            // errDescripcion
+            // 
+            this.errDescripcion.ContainerControl = this;
+            // 
+            // errPrecio
+            // 
+            this.errPrecio.ContainerControl = this;
+            // 
+            // errCodigo
+            // 
+            this.errCodigo.ContainerControl = this;
+            // 
+            // errMarca
+            // 
+            this.errMarca.ContainerControl = this;
+            // 
+            // errCategoria
+            // 
+            this.errCategoria.ContainerControl = this;
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 312);
+            this.ClientSize = new System.Drawing.Size(520, 330);
+            this.Controls.Add(this.btnImagen);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.txtUrlImagen);
             this.Controls.Add(this.lblUrlImagen);
@@ -217,11 +267,18 @@ namespace TPFinalNivel2_Guanca
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAltaArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Articulo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDescripcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +303,12 @@ namespace TPFinalNivel2_Guanca
         private System.Windows.Forms.TextBox txtUrlImagen;
         private System.Windows.Forms.Label lblUrlImagen;
         private System.Windows.Forms.PictureBox pbxArticulo;
+        private System.Windows.Forms.Button btnImagen;
+        private System.Windows.Forms.ErrorProvider errNombre;
+        private System.Windows.Forms.ErrorProvider errDescripcion;
+        private System.Windows.Forms.ErrorProvider errPrecio;
+        private System.Windows.Forms.ErrorProvider errCodigo;
+        private System.Windows.Forms.ErrorProvider errMarca;
+        private System.Windows.Forms.ErrorProvider errCategoria;
     }
 }
