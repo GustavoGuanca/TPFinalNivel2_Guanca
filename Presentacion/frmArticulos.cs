@@ -64,7 +64,6 @@ namespace Presentacion
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
                 ocultarColumnas();
-                pbxArticulo.Load(listaArticulo[0].UrlImagen);
             }
             catch (Exception ex)
             {
@@ -148,12 +147,14 @@ namespace Presentacion
         {
             if(cboCampo.SelectedIndex < 0)
             {
+                SystemSounds.Exclamation.Play();
                 MessageBox.Show("Debes seleccionar un campo");
                 return true;
             }
-
+      
             if (cboCriterio.SelectedIndex < 0)
             {
+                SystemSounds.Exclamation.Play();
                 MessageBox.Show("Debes seleccionar un Criterio");
                 return true;
             }
@@ -162,17 +163,27 @@ namespace Presentacion
             {
                 if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
                 {
+                    SystemSounds.Exclamation.Play();
                     MessageBox.Show("Debes ingresar un filtro");
                     return true;
                 }
 
                 if (!(validarSoloNumeros(txtFiltroAvanzado.Text)))
                 {
+                    SystemSounds.Exclamation.Play();
                     MessageBox.Show("Debes ingresar sólo números");
                     return true;
                 }
             }
 
+            if (cboCampo.SelectedIndex == 0 || cboCampo.SelectedIndex == 1 || cboCampo.SelectedIndex == 2 || cboCampo.SelectedIndex == 3 && txtFiltroAvanzado.Text != "")
+            { 
+
+                    SystemSounds.Exclamation.Play();
+                    MessageBox.Show("Debe escribir caracteres en la caja de texto");
+                    return true;
+                
+            }            
             return false;
         }
 
@@ -265,6 +276,7 @@ namespace Presentacion
                 Articulo seleccionado;
                 try
                 {
+                    SystemSounds.Exclamation.Play();
                     DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar?", "¿Eliminar?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (respuesta == DialogResult.Yes)
@@ -290,9 +302,46 @@ namespace Presentacion
         }
         private void btnVerDetalle_Click(object sender, EventArgs e)
         {
+            if (dgvArticulos.CurrentCell != null)
+            { 
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             frmDetalle detalle = new frmDetalle(seleccionado);
             detalle.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Elija un articulo");
+            }
         }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            frmAltaRelacionales alta = new frmAltaRelacionales(btn.Name);
+            alta.ShowDialog();
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            frmAltaRelacionales alta = new frmAltaRelacionales(btn.Name);
+            alta.ShowDialog();
+        }
+
+        private void btnEliminarMarca_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            frmBajaRelacionales baja = new frmBajaRelacionales(btn.Name);
+            baja.ShowDialog();
+        }
+
+        private void btnEliminarCategoria_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            frmBajaRelacionales baja = new frmBajaRelacionales(btn.Name);
+            baja.ShowDialog();
+        }
+
+       
     }
 }

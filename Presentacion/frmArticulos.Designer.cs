@@ -46,10 +46,18 @@ namespace Presentacion
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grpArticulo = new System.Windows.Forms.GroupBox();
             this.btnVerDetalle = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarCategoria = new System.Windows.Forms.Button();
+            this.btnAgregarCategoria = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarMarca = new System.Windows.Forms.Button();
+            this.btnAgregarMarca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.grpBusquedaAvanzada.SuspendLayout();
             this.grpArticulo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -57,7 +65,7 @@ namespace Presentacion
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 215);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 254);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -67,7 +75,7 @@ namespace Presentacion
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(711, 161);
+            this.pbxArticulo.Location = new System.Drawing.Point(724, 254);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(320, 329);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -137,7 +145,7 @@ namespace Presentacion
             this.grpBusquedaAvanzada.Controls.Add(this.txtFiltroAvanzado);
             this.grpBusquedaAvanzada.Controls.Add(this.lblCampos);
             this.grpBusquedaAvanzada.Controls.Add(this.cboCriterio);
-            this.grpBusquedaAvanzada.Location = new System.Drawing.Point(12, 12);
+            this.grpBusquedaAvanzada.Location = new System.Drawing.Point(26, 126);
             this.grpBusquedaAvanzada.Name = "grpBusquedaAvanzada";
             this.grpBusquedaAvanzada.Size = new System.Drawing.Size(859, 99);
             this.grpBusquedaAvanzada.TabIndex = 19;
@@ -199,7 +207,7 @@ namespace Presentacion
             this.grpArticulo.Controls.Add(this.btnAgregar);
             this.grpArticulo.Controls.Add(this.btnEliminar);
             this.grpArticulo.Controls.Add(this.btnModificar);
-            this.grpArticulo.Location = new System.Drawing.Point(43, 126);
+            this.grpArticulo.Location = new System.Drawing.Point(26, 37);
             this.grpArticulo.Name = "grpArticulo";
             this.grpArticulo.Size = new System.Drawing.Size(408, 83);
             this.grpArticulo.TabIndex = 23;
@@ -208,7 +216,7 @@ namespace Presentacion
             // 
             // btnVerDetalle
             // 
-            this.btnVerDetalle.Location = new System.Drawing.Point(839, 506);
+            this.btnVerDetalle.Location = new System.Drawing.Point(862, 589);
             this.btnVerDetalle.Name = "btnVerDetalle";
             this.btnVerDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnVerDetalle.TabIndex = 24;
@@ -216,12 +224,76 @@ namespace Presentacion
             this.btnVerDetalle.UseVisualStyleBackColor = true;
             this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEliminarCategoria);
+            this.groupBox1.Controls.Add(this.btnAgregarCategoria);
+            this.groupBox1.Location = new System.Drawing.Point(753, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 81);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Categoria";
+            // 
+            // btnEliminarCategoria
+            // 
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(109, 33);
+            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarCategoria.TabIndex = 3;
+            this.btnEliminarCategoria.Text = "Eliminar";
+            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
+            this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
+            // 
+            // btnAgregarCategoria
+            // 
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(6, 32);
+            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarCategoria.TabIndex = 2;
+            this.btnAgregarCategoria.Text = "Agregar";
+            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnEliminarMarca);
+            this.groupBox2.Controls.Add(this.btnAgregarMarca);
+            this.groupBox2.Location = new System.Drawing.Point(500, 39);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 81);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Marca";
+            // 
+            // btnEliminarMarca
+            // 
+            this.btnEliminarMarca.Location = new System.Drawing.Point(110, 32);
+            this.btnEliminarMarca.Name = "btnEliminarMarca";
+            this.btnEliminarMarca.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarMarca.TabIndex = 1;
+            this.btnEliminarMarca.Text = "Eliminar";
+            this.btnEliminarMarca.UseVisualStyleBackColor = true;
+            this.btnEliminarMarca.Click += new System.EventHandler(this.btnEliminarMarca_Click);
+            // 
+            // btnAgregarMarca
+            // 
+            this.btnAgregarMarca.Location = new System.Drawing.Point(9, 32);
+            this.btnAgregarMarca.Name = "btnAgregarMarca";
+            this.btnAgregarMarca.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarMarca.TabIndex = 0;
+            this.btnAgregarMarca.Text = "Agregar";
+            this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1043, 574);
+            this.ClientSize = new System.Drawing.Size(1074, 642);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.grpArticulo);
             this.Controls.Add(this.grpBusquedaAvanzada);
@@ -237,6 +309,8 @@ namespace Presentacion
             this.grpBusquedaAvanzada.ResumeLayout(false);
             this.grpBusquedaAvanzada.PerformLayout();
             this.grpArticulo.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,6 +333,12 @@ namespace Presentacion
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox grpArticulo;
         private System.Windows.Forms.Button btnVerDetalle;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnEliminarCategoria;
+        private System.Windows.Forms.Button btnAgregarCategoria;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnEliminarMarca;
+        private System.Windows.Forms.Button btnAgregarMarca;
     }
 }
 

@@ -43,6 +43,7 @@ namespace Presentacion
             lblMarcaSeleccionada.Text = seleccionado.Marca.Descripcion;
             lblCategoriaSeleccionada.Text = seleccionado.Categoria.Descripcion;
             lblDescripcionSeleccionada.Text = seleccionado.Descripcion;
+
         }
     }
 }

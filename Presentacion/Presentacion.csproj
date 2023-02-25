@@ -53,11 +53,23 @@
     <Compile Include="frmAltaArticulo.Designer.cs">
       <DependentUpon>frmAltaArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAltaRelacionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaRelacionales.Designer.cs">
+      <DependentUpon>frmAltaRelacionales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmArticulos.Designer.cs">
       <DependentUpon>frmArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBajaRelacionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajaRelacionales.Designer.cs">
+      <DependentUpon>frmBajaRelacionales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDetalle.cs">
       <SubType>Form</SubType>
@@ -70,8 +82,14 @@
     <EmbeddedResource Include="frmAltaArticulo.resx">
       <DependentUpon>frmAltaArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaRelacionales.resx">
+      <DependentUpon>frmAltaRelacionales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBajaRelacionales.resx">
+      <DependentUpon>frmBajaRelacionales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetalle.resx">
       <DependentUpon>frmDetalle.cs</DependentUpon>
