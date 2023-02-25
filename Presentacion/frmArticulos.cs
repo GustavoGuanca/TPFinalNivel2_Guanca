@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,8 +28,11 @@ namespace Presentacion
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Descripción");
             cboCampo.Items.Add("Precio");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Categoría");
         }
 
+      
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             if(dgvArticulos.CurrentRow != null)
@@ -69,44 +73,9 @@ namespace Presentacion
             }
 
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            frmAltaArticulo alta = new frmAltaArticulo();
-            alta.ShowDialog();
-            cargar();
-        }
+ 
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargar();
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccionado;
-            try
-            {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar?", "¿Eliminar?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                
-                if(respuesta == DialogResult.Yes)
-                {
-                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                negocio.eliminar(seleccionado.Id);
-                cargar();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
+ 
 
         private void ocultarColumnas()
         {
@@ -119,23 +88,53 @@ namespace Presentacion
 
             private void cboCampos_SelectedIndexChanged(object sender, EventArgs e)
             {
+            CategoriasNegocio categoriasNegocio = new CategoriasNegocio();
+            MarcasNegocio marcasNegocio = new MarcasNegocio();
             if (cboCampo.SelectedIndex == -1)
             {
+                cboCriterio.DataSource = null;
                 cboCriterio.Items.Clear();
             }
 
             else
             {
             string opcion = cboCampo.SelectedItem.ToString();
-            if (opcion == "Precio")
+                if (opcion == "Precio")
+                {
+                    txtFiltroAvanzado.Text = "";
+                    txtFiltroAvanzado.Enabled = true;
+                    cboCriterio.DataSource = null;
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Mayor a");
+                    cboCriterio.Items.Add("Menor a");
+                    cboCriterio.Items.Add("Igual a");
+                }
+
+                else if (opcion == "Marca")
+                {
+                    txtFiltroAvanzado.Text = "";
+                    txtFiltroAvanzado.Enabled = false;
+                    cboCriterio.DataSource = marcasNegocio.listar();
+                    cboCriterio.ValueMember = "Id";
+                    cboCriterio.DisplayMember = "Descripcion";
+                    cboCriterio.SelectedIndex = -1;
+                }
+
+                else if (opcion == "Categoría")
+                {
+                    txtFiltroAvanzado.Text = "";
+                    txtFiltroAvanzado.Enabled = false;
+                    cboCriterio.DataSource = categoriasNegocio.listar();
+                    cboCriterio.ValueMember = "Id";
+                    cboCriterio.DisplayMember = "Descripcion";
+                    cboCriterio.SelectedIndex = -1;
+                }
+
+                else
             {
-                cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Mayor a");
-                cboCriterio.Items.Add("Menor a");
-                cboCriterio.Items.Add("Igual a");
-            }
-            else
-            {
+                txtFiltroAvanzado.Text = "";
+                txtFiltroAvanzado.Enabled = true;
+                cboCriterio.DataSource = null;
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");
@@ -189,6 +188,7 @@ namespace Presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            int indiceCampo = cboCampo.SelectedIndex;
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
@@ -198,8 +198,17 @@ namespace Presentacion
 
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
-                string filtro = txtFiltroAvanzado.Text;
-                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+                string filtro;
+                if (indiceCampo == 4 || indiceCampo == 5)
+                {
+                    filtro = criterio;
+                }
+                else
+                {
+                    filtro = txtFiltroAvanzado.Text;
+                }
+                    dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+
             }
             catch (Exception ex)
             {
@@ -210,10 +219,57 @@ namespace Presentacion
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            txtFiltroAvanzado.Enabled = true;
             cboCampo.SelectedIndex = -1;
             cboCriterio.SelectedIndex = -1;
             txtFiltroAvanzado.Text = "";
             cargar();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            SystemSounds.Exclamation.Play();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar?", "¿Eliminar?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmDetalle detalle = new frmDetalle(seleccionado);
+            detalle.ShowDialog();
         }
     }
 }

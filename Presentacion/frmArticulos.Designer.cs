@@ -32,9 +32,6 @@ namespace Presentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArticulos));
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.cboCriterio = new System.Windows.Forms.ComboBox();
@@ -42,11 +39,17 @@ namespace Presentacion
             this.lblCampos = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpBusquedaAvanzada = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.grpArticulo = new System.Windows.Forms.GroupBox();
+            this.btnVerDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.grpBusquedaAvanzada.SuspendLayout();
+            this.grpArticulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -54,7 +57,7 @@ namespace Presentacion
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(34, 59);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 215);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -64,42 +67,12 @@ namespace Presentacion
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(716, 59);
+            this.pbxArticulo.Location = new System.Drawing.Point(711, 161);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(237, 329);
+            this.pbxArticulo.Size = new System.Drawing.Size(320, 329);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(43, 410);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(140, 410);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 5;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(232, 410);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 6;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtFiltroAvanzado
             // 
@@ -164,22 +137,12 @@ namespace Presentacion
             this.grpBusquedaAvanzada.Controls.Add(this.txtFiltroAvanzado);
             this.grpBusquedaAvanzada.Controls.Add(this.lblCampos);
             this.grpBusquedaAvanzada.Controls.Add(this.cboCriterio);
-            this.grpBusquedaAvanzada.Location = new System.Drawing.Point(12, 453);
+            this.grpBusquedaAvanzada.Location = new System.Drawing.Point(12, 12);
             this.grpBusquedaAvanzada.Name = "grpBusquedaAvanzada";
             this.grpBusquedaAvanzada.Size = new System.Drawing.Size(859, 99);
             this.grpBusquedaAvanzada.TabIndex = 19;
             this.grpBusquedaAvanzada.TabStop = false;
             this.grpBusquedaAvanzada.Text = "Busqueda Avanzada";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(727, 31);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(84, 23);
-            this.btnBuscar.TabIndex = 19;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -191,16 +154,77 @@ namespace Presentacion
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(727, 31);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(84, 23);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(248, 35);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(156, 35);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 21;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(59, 35);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 20;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // grpArticulo
+            // 
+            this.grpArticulo.Controls.Add(this.btnAgregar);
+            this.grpArticulo.Controls.Add(this.btnEliminar);
+            this.grpArticulo.Controls.Add(this.btnModificar);
+            this.grpArticulo.Location = new System.Drawing.Point(43, 126);
+            this.grpArticulo.Name = "grpArticulo";
+            this.grpArticulo.Size = new System.Drawing.Size(408, 83);
+            this.grpArticulo.TabIndex = 23;
+            this.grpArticulo.TabStop = false;
+            this.grpArticulo.Text = "Articulo";
+            // 
+            // btnVerDetalle
+            // 
+            this.btnVerDetalle.Location = new System.Drawing.Point(839, 506);
+            this.btnVerDetalle.Name = "btnVerDetalle";
+            this.btnVerDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnVerDetalle.TabIndex = 24;
+            this.btnVerDetalle.Text = "Ver detalle";
+            this.btnVerDetalle.UseVisualStyleBackColor = true;
+            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(989, 574);
+            this.ClientSize = new System.Drawing.Size(1043, 574);
+            this.Controls.Add(this.btnVerDetalle);
+            this.Controls.Add(this.grpArticulo);
             this.Controls.Add(this.grpBusquedaAvanzada);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -212,6 +236,7 @@ namespace Presentacion
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.grpBusquedaAvanzada.ResumeLayout(false);
             this.grpBusquedaAvanzada.PerformLayout();
+            this.grpArticulo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -220,9 +245,6 @@ namespace Presentacion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.PictureBox pbxArticulo;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.ComboBox cboCriterio;
@@ -232,6 +254,11 @@ namespace Presentacion
         private System.Windows.Forms.GroupBox grpBusquedaAvanzada;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.GroupBox grpArticulo;
+        private System.Windows.Forms.Button btnVerDetalle;
     }
 }
 

@@ -204,7 +204,14 @@ namespace Negocio
                                 break;
                         }
                         break;
-
+                
+                    case "Marca":    
+                              consulta += " and M.Descripcion like '%" + filtro + "%'";
+                        break;
+                   
+                    case "Categoría":
+                        consulta += " and c.Descripcion like '%" + filtro + "%'";
+                        break;
                 }
 
                 datos.setearConsulta(consulta);
