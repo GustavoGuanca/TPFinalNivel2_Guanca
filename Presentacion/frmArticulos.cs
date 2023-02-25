@@ -219,6 +219,11 @@ namespace Presentacion
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            limpiarBusqueda();
+        }
+
+        private void limpiarBusqueda()
+        {
             txtFiltroAvanzado.Enabled = true;
             cboCampo.SelectedIndex = -1;
             cboCriterio.SelectedIndex = -1;
@@ -230,41 +235,59 @@ namespace Presentacion
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
-            cargar();
+            limpiarBusqueda();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (dgvArticulos.CurrentCell != null)
+            {
             Articulo seleccionado;
             seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
             modificar.ShowDialog();
-            cargar();
+            limpiarBusqueda();
+            }
+                else
+            {
+                SystemSounds.Exclamation.Play();
+                MessageBox.Show("No tiene ningún artículo seleccionado");
+                limpiarBusqueda();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            SystemSounds.Exclamation.Play();
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccionado;
-            try
+            if (dgvArticulos.CurrentCell != null)
             {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar?", "¿Eliminar?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (respuesta == DialogResult.Yes)
+                SystemSounds.Exclamation.Play();
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Articulo seleccionado;
+                try
                 {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
-                    cargar();
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar?", "¿Eliminar?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.eliminar(seleccionado.Id);
+                        limpiarBusqueda();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
                 }
             }
-            catch (Exception ex)
-            {
 
-                throw ex;
+            else
+            {
+                SystemSounds.Exclamation.Play();
+                MessageBox.Show("No tiene ningún artículo seleccionado");
+                limpiarBusqueda();
             }
         }
-
         private void btnVerDetalle_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
