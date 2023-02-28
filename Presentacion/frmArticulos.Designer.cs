@@ -45,7 +45,6 @@ namespace Presentacion
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grpArticulo = new System.Windows.Forms.GroupBox();
-            this.btnVerDetalle = new System.Windows.Forms.Button();
             this.grpCategoria = new System.Windows.Forms.GroupBox();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
@@ -83,6 +82,7 @@ namespace Presentacion
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
+            this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
             // 
             // txtFiltroAvanzado
             // 
@@ -232,16 +232,6 @@ namespace Presentacion
             this.grpArticulo.TabStop = false;
             this.grpArticulo.Text = "Articulo";
             // 
-            // btnVerDetalle
-            // 
-            this.btnVerDetalle.Location = new System.Drawing.Point(862, 589);
-            this.btnVerDetalle.Name = "btnVerDetalle";
-            this.btnVerDetalle.Size = new System.Drawing.Size(75, 23);
-            this.btnVerDetalle.TabIndex = 24;
-            this.btnVerDetalle.Text = "Ver detalle";
-            this.btnVerDetalle.UseVisualStyleBackColor = true;
-            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
-            // 
             // grpCategoria
             // 
             this.grpCategoria.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("grpCategoria.BackgroundImage")));
@@ -323,7 +313,6 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(1074, 642);
             this.Controls.Add(this.grpMarca);
             this.Controls.Add(this.grpCategoria);
-            this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.grpArticulo);
             this.Controls.Add(this.grpBusquedaAvanzada);
             this.Controls.Add(this.pbxArticulo);
@@ -361,7 +350,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox grpArticulo;
-        private System.Windows.Forms.Button btnVerDetalle;
         private System.Windows.Forms.GroupBox grpCategoria;
         private System.Windows.Forms.Button btnEliminarCategoria;
         private System.Windows.Forms.Button btnAgregarCategoria;

@@ -225,8 +225,16 @@ namespace Presentacion
                 {
                     filtro = txtFiltroAvanzado.Text;
                 }
-                    dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+                
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
 
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se encontraron coincidencias.");
+                    limpiarBusqueda();
+                }
+                
+           
             }
             catch (Exception ex)
             {
@@ -309,19 +317,7 @@ namespace Presentacion
                 limpiarBusqueda();
             }
         }
-        private void btnVerDetalle_Click(object sender, EventArgs e)
-        {
-            if (dgvArticulos.CurrentCell != null)
-            { 
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmDetalle detalle = new frmDetalle(seleccionado);
-            detalle.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Elija un articulo");
-            }
-        }
+  
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
@@ -354,6 +350,20 @@ namespace Presentacion
         private void dgvArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             pbxArticulo.Visible = true;
+        }
+
+        private void pbxArticulo_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentCell != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmDetalle detalle = new frmDetalle(seleccionado);
+                detalle.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Elija un articulo");
+            }
         }
     }
 }

@@ -114,6 +114,7 @@ namespace Presentacion
             // 
             // pbxArticulo
             // 
+            this.pbxArticulo.BackColor = System.Drawing.Color.Transparent;
             this.pbxArticulo.Location = new System.Drawing.Point(73, 274);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(244, 254);
