@@ -29,6 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBajaRelacionales));
             this.lblRelacional = new System.Windows.Forms.Label();
             this.cboRelacional = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -38,7 +39,8 @@ namespace Presentacion
             // lblRelacional
             // 
             this.lblRelacional.AutoSize = true;
-            this.lblRelacional.Location = new System.Drawing.Point(21, 40);
+            this.lblRelacional.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblRelacional.Location = new System.Drawing.Point(12, 50);
             this.lblRelacional.Name = "lblRelacional";
             this.lblRelacional.Size = new System.Drawing.Size(0, 13);
             this.lblRelacional.TabIndex = 4;
@@ -47,7 +49,7 @@ namespace Presentacion
             // 
             this.cboRelacional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRelacional.FormattingEnabled = true;
-            this.cboRelacional.Location = new System.Drawing.Point(67, 37);
+            this.cboRelacional.Location = new System.Drawing.Point(86, 47);
             this.cboRelacional.Name = "cboRelacional";
             this.cboRelacional.Size = new System.Drawing.Size(167, 21);
             this.cboRelacional.TabIndex = 8;
@@ -76,12 +78,15 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 155);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(273, 155);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cboRelacional);
             this.Controls.Add(this.lblRelacional);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBajaRelacionales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar";
             this.Load += new System.EventHandler(this.frmBajaRelacionales_Load);
             this.ResumeLayout(false);

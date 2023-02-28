@@ -36,6 +36,19 @@ namespace Presentacion
 
         private void frmDetalle_Load(object sender, EventArgs e)
         {
+            lblNombreSeleccionado.BackColor = Color.Transparent;
+            lblPrecioSeleccionado.BackColor = Color.Transparent;
+            lblCodigoSeleccionado.BackColor = Color.Transparent;
+            lblMarcaSeleccionada.BackColor = Color.Transparent;
+            lblCategoriaSeleccionada.BackColor = Color.Transparent;
+            lblDescripcionSeleccionada.BackColor = Color.Transparent;
+            lblNombre.BackColor = Color.Transparent;
+            lblPrecio.BackColor = Color.Transparent;
+            lblCodigo.BackColor = Color.Transparent;
+            lblMarca.BackColor = Color.Transparent;
+            lblCategoria.BackColor = Color.Transparent;
+            lblDescripcion.BackColor = Color.Transparent;
+
             cargarImagen(seleccionado.UrlImagen);
             lblNombreSeleccionado.Text = seleccionado.Nombre;                
             lblPrecioSeleccionado.Text = seleccionado.Precio.ToString("C");  

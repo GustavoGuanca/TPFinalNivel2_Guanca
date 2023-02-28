@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Drawing;
 
 namespace Presentacion
 {
@@ -67,6 +68,14 @@ namespace Presentacion
         }
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
+            lblCodigo.BackColor = Color.Transparent;
+            lblNombre.BackColor = Color.Transparent;
+            lblPrecio.BackColor = Color.Transparent;
+            lblDescripcion.BackColor = Color.Transparent;
+            lblMarca.BackColor = Color.Transparent;
+            lblCategoria.BackColor = Color.Transparent;
+            lblUrlImagen.BackColor = Color.Transparent;
+
             CategoriasNegocio categoriasNegocio = new CategoriasNegocio();
             MarcasNegocio marcasNegocio = new MarcasNegocio();
             try

@@ -30,16 +30,21 @@ namespace Presentacion
             cboCampo.Items.Add("Precio");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Categoría");
+            lblCampos.BackColor = Color.Transparent;
+            lblCriterios.BackColor = Color.Transparent;
+            lblFiltroAvanzado.BackColor = Color.Transparent;
         }
 
       
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvArticulos.CurrentRow != null)
+                
+            if (dgvArticulos.CurrentRow != null)
             {
                  Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                 cargarImagen(seleccionado.UrlImagen);
+                cargarImagen(seleccionado.UrlImagen);
             }
+
         }
 
         private void cargarImagen(string imagen)
@@ -58,12 +63,14 @@ namespace Presentacion
 
         private void cargar()
         {
+          
             try
             {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                listaArticulo = negocio.listar();
-                dgvArticulos.DataSource = listaArticulo;
-                ocultarColumnas();
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    listaArticulo = negocio.listar();
+                    dgvArticulos.DataSource = listaArticulo;
+                    ocultarColumnas();
+               
             }
             catch (Exception ex)
             {
@@ -71,10 +78,10 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
 
-        }
- 
+        
 
- 
+        }
+
 
         private void ocultarColumnas()
         {
@@ -148,14 +155,14 @@ namespace Presentacion
             if(cboCampo.SelectedIndex < 0)
             {
                 SystemSounds.Exclamation.Play();
-                MessageBox.Show("Debes seleccionar un campo");
+                MessageBox.Show("Debe seleccionar un campo");
                 return true;
             }
       
             if (cboCriterio.SelectedIndex < 0)
             {
                 SystemSounds.Exclamation.Play();
-                MessageBox.Show("Debes seleccionar un Criterio");
+                MessageBox.Show("Debe seleccionar un Criterio");
                 return true;
             }
 
@@ -164,23 +171,23 @@ namespace Presentacion
                 if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
                 {
                     SystemSounds.Exclamation.Play();
-                    MessageBox.Show("Debes ingresar un filtro");
+                    MessageBox.Show("Debe ingresar un filtro");
                     return true;
                 }
 
                 if (!(validarSoloNumeros(txtFiltroAvanzado.Text)))
                 {
                     SystemSounds.Exclamation.Play();
-                    MessageBox.Show("Debes ingresar sólo números");
+                    MessageBox.Show("Debe ingresar sólo números");
                     return true;
                 }
             }
 
-            if (cboCampo.SelectedIndex == 0 || cboCampo.SelectedIndex == 1 || cboCampo.SelectedIndex == 2 || cboCampo.SelectedIndex == 3 && txtFiltroAvanzado.Text != "")
+            if (txtFiltroAvanzado.Text == "" && cboCampo.SelectedIndex < 4)
             { 
 
                     SystemSounds.Exclamation.Play();
-                    MessageBox.Show("Debe escribir caracteres en la caja de texto");
+                    MessageBox.Show("Debe escribir en filtro avanzado");
                     return true;
                 
             }            
@@ -261,6 +268,7 @@ namespace Presentacion
             }
                 else
             {
+                
                 SystemSounds.Exclamation.Play();
                 MessageBox.Show("No tiene ningún artículo seleccionado");
                 limpiarBusqueda();
@@ -283,6 +291,7 @@ namespace Presentacion
                     {
                         seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                         negocio.eliminar(seleccionado.Id);
+                        pbxArticulo.Visible = false;
                         limpiarBusqueda();
                     }
                 }
@@ -292,7 +301,7 @@ namespace Presentacion
                     throw ex;
                 }
             }
-
+                
             else
             {
                 SystemSounds.Exclamation.Play();
@@ -342,6 +351,9 @@ namespace Presentacion
             baja.ShowDialog();
         }
 
-       
+        private void dgvArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pbxArticulo.Visible = true;
+        }
     }
 }

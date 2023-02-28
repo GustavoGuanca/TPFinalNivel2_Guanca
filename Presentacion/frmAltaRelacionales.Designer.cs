@@ -29,6 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaRelacionales));
             this.lblRelacional = new System.Windows.Forms.Label();
             this.txtRelacional = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace Presentacion
             // lblRelacional
             // 
             this.lblRelacional.AutoSize = true;
+            this.lblRelacional.ForeColor = System.Drawing.SystemColors.Control;
             this.lblRelacional.Location = new System.Drawing.Point(12, 50);
             this.lblRelacional.Name = "lblRelacional";
             this.lblRelacional.Size = new System.Drawing.Size(0, 13);
@@ -45,7 +47,7 @@ namespace Presentacion
             // 
             // txtRelacional
             // 
-            this.txtRelacional.Location = new System.Drawing.Point(67, 47);
+            this.txtRelacional.Location = new System.Drawing.Point(86, 47);
             this.txtRelacional.Name = "txtRelacional";
             this.txtRelacional.Size = new System.Drawing.Size(162, 20);
             this.txtRelacional.TabIndex = 1;
@@ -74,14 +76,17 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 155);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(273, 155);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtRelacional);
             this.Controls.Add(this.lblRelacional);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAltaRelacionales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar";
+            this.Load += new System.EventHandler(this.frmAltaRelacionales_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

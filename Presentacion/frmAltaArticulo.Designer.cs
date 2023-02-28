@@ -67,6 +67,7 @@ namespace Presentacion
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
+            this.lblCodigo.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCodigo.Location = new System.Drawing.Point(26, 38);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
@@ -76,6 +77,7 @@ namespace Presentacion
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNombre.Location = new System.Drawing.Point(26, 69);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
@@ -85,6 +87,7 @@ namespace Presentacion
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDescripcion.Location = new System.Drawing.Point(26, 103);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
@@ -135,6 +138,7 @@ namespace Presentacion
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
+            this.lblCategoria.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCategoria.Location = new System.Drawing.Point(33, 166);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(55, 13);
@@ -144,6 +148,7 @@ namespace Presentacion
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
+            this.lblMarca.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMarca.Location = new System.Drawing.Point(33, 132);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
@@ -178,6 +183,7 @@ namespace Presentacion
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
+            this.lblPrecio.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPrecio.Location = new System.Drawing.Point(47, 253);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(40, 13);
@@ -195,6 +201,7 @@ namespace Presentacion
             // lblUrlImagen
             // 
             this.lblUrlImagen.AutoSize = true;
+            this.lblUrlImagen.ForeColor = System.Drawing.SystemColors.Control;
             this.lblUrlImagen.Location = new System.Drawing.Point(26, 198);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(61, 13);
@@ -249,6 +256,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(520, 330);
             this.Controls.Add(this.btnImagen);
             this.Controls.Add(this.pbxArticulo);

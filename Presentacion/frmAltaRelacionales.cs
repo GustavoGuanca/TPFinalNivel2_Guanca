@@ -80,7 +80,11 @@ namespace Presentacion
             this.Close();
         }
 
+        private void frmAltaRelacionales_Load(object sender, EventArgs e)
+        {
+            lblRelacional.BackColor = Color.Transparent;
         }
+    }
 
     }
 

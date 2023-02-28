@@ -50,6 +50,7 @@ namespace Presentacion
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNombre.Location = new System.Drawing.Point(30, 9);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(69, 20);
@@ -60,6 +61,7 @@ namespace Presentacion
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPrecio.Location = new System.Drawing.Point(42, 44);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(57, 20);
@@ -70,6 +72,7 @@ namespace Presentacion
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDescripcion.Location = new System.Drawing.Point(3, 86);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(96, 20);
@@ -80,6 +83,7 @@ namespace Presentacion
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCodigo.Location = new System.Drawing.Point(36, 128);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(63, 20);
@@ -90,6 +94,7 @@ namespace Presentacion
             // 
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMarca.Location = new System.Drawing.Point(42, 170);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(57, 20);
@@ -100,6 +105,7 @@ namespace Presentacion
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCategoria.Location = new System.Drawing.Point(17, 213);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(82, 20);
@@ -119,6 +125,7 @@ namespace Presentacion
             // 
             this.lblNombreSeleccionado.AutoSize = true;
             this.lblNombreSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreSeleccionado.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNombreSeleccionado.Location = new System.Drawing.Point(119, 9);
             this.lblNombreSeleccionado.Name = "lblNombreSeleccionado";
             this.lblNombreSeleccionado.Size = new System.Drawing.Size(0, 20);
@@ -128,6 +135,7 @@ namespace Presentacion
             // 
             this.lblPrecioSeleccionado.AutoSize = true;
             this.lblPrecioSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioSeleccionado.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPrecioSeleccionado.Location = new System.Drawing.Point(119, 44);
             this.lblPrecioSeleccionado.Name = "lblPrecioSeleccionado";
             this.lblPrecioSeleccionado.Size = new System.Drawing.Size(0, 20);
@@ -137,6 +145,7 @@ namespace Presentacion
             // 
             this.lblDescripcionSeleccionada.AutoSize = true;
             this.lblDescripcionSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionSeleccionada.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDescripcionSeleccionada.Location = new System.Drawing.Point(119, 86);
             this.lblDescripcionSeleccionada.Name = "lblDescripcionSeleccionada";
             this.lblDescripcionSeleccionada.Size = new System.Drawing.Size(0, 20);
@@ -146,6 +155,7 @@ namespace Presentacion
             // 
             this.lblCodigoSeleccionado.AutoSize = true;
             this.lblCodigoSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoSeleccionado.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCodigoSeleccionado.Location = new System.Drawing.Point(119, 128);
             this.lblCodigoSeleccionado.Name = "lblCodigoSeleccionado";
             this.lblCodigoSeleccionado.Size = new System.Drawing.Size(0, 20);
@@ -155,6 +165,7 @@ namespace Presentacion
             // 
             this.lblMarcaSeleccionada.AutoSize = true;
             this.lblMarcaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarcaSeleccionada.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMarcaSeleccionada.Location = new System.Drawing.Point(119, 170);
             this.lblMarcaSeleccionada.Name = "lblMarcaSeleccionada";
             this.lblMarcaSeleccionada.Size = new System.Drawing.Size(0, 20);
@@ -164,6 +175,7 @@ namespace Presentacion
             // 
             this.lblCategoriaSeleccionada.AutoSize = true;
             this.lblCategoriaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoriaSeleccionada.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCategoriaSeleccionada.Location = new System.Drawing.Point(119, 213);
             this.lblCategoriaSeleccionada.Name = "lblCategoriaSeleccionada";
             this.lblCategoriaSeleccionada.Size = new System.Drawing.Size(0, 20);
@@ -174,6 +186,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(386, 590);
             this.Controls.Add(this.lblCategoriaSeleccionada);
             this.Controls.Add(this.lblMarcaSeleccionada);

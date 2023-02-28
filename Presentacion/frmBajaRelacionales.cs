@@ -36,6 +36,7 @@ namespace Presentacion
 
         private void frmBajaRelacionales_Load(object sender, EventArgs e)
         {
+            lblRelacional.BackColor = Color.Transparent;
             switch (eleccion)
             {
                 case "btnEliminarMarca":
