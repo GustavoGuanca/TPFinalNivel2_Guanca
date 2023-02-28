@@ -338,6 +338,7 @@ namespace Presentacion
             Button btn = (Button)sender;
             frmBajaRelacionales baja = new frmBajaRelacionales(btn.Name);
             baja.ShowDialog();
+            limpiarBusqueda();
         }
 
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
@@ -345,6 +346,7 @@ namespace Presentacion
             Button btn = (Button)sender;
             frmBajaRelacionales baja = new frmBajaRelacionales(btn.Name);
             baja.ShowDialog();
+            limpiarBusqueda();
         }
 
         private void dgvArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
